@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            box-sizing: border-box;
+        }
+
+        .main {
+            width: 100vw;
+            height: auto;
+            background-color: #08121d;
+            padding-top: 10px;
+        }
+
+        .main h1 {
+            font-size: 45px;
+            color: aqua;
+            text-align: center;
+            padding: 20px 0;
+            text-shadow: 0px 0px 5px grey;
+        }
+
+        .container {
+            display: flex;
+            /* flex-wrap: ; */
+            flex-wrap: wrap;
+            width: 80%;
+            margin: auto;
+            justify-content: center;
+        }
+
+        .container img {
+            width: 430px;
+            height: 225px;
+        }
+        .image-container {
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            margin: 8px;
+        }
+
+        .info-div {
+            position: absolute;
+            bottom: -100%;
+            left: 0;
+            width: 100%;
+            background-color: rgba(155, 155, 155, 0.24);
+            color: white;
+            text-align: center;
+            padding-bottom: 20px;
+            transition: bottom 1s;
+        }
+        .back{
+            background-color: #fff;
+            border-radius: 50%;
+            width: 50px;
+            position: absolute;
+            margin: 10px 20px;
+            cursor: pointer;
+        }
+        @media only screen and (max-width: 600px){
+            .main h1{
+                font-size: 2.7em;
+            }
+            .back{
+                width: 37px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <a href="index.html"><img src="arrow-left-circle.svg" alt="" class="back" ></a>
+        <h1>Gallery</h1>
+        <div class="container">
+            <div class="image-container">
+                <img src="bg1.jpg" alt="1" class="image">
+                <div class="info-div">
+                    <h2>This is 1st Theme</h2>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing <br> Lorem ipsum dolor sit amet.</p>
+                </div>
+            </div>
+            <div class="image-container">
+                <img src="bg2.jpg" alt="1" class="image">
+                <div class="info-div">
+                    <h2>This is 2nd Theme</h2>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing <br> Lorem ipsum dolor sit amet.</p>
+                </div>
+            </div>
+            <div class="image-container">
+                <img src="bg3.jpg" alt="1" class="image">
+                <div class="info-div">
+                    <h2>This is 3rd Theme</h2>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing <br> Lorem ipsum dolor sit amet.</p>
+                </div>
+            </div>
+            <div class="image-container">
+                <img src="bg3.jpg" alt="1" class="image">
+                <div class="info-div">
+                    <h2>This is 4th Theme</h2>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing <br> Lorem ipsum dolor sit amet.</p>
+                </div>
+            </div>
+            <div class="image-container">
+                <img src="bg2.jpg" alt="1" class="image">
+                <div class="info-div">
+                    <h2>This is 5th Theme</h2>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing <br> Lorem ipsum dolor sit amet.</p>
+                </div>
+            </div>
+            <div class="image-container">
+                <img src="bg1.jpg" alt="1" class="image">
+                <div class="info-div">
+                    <h2>This is 6th Theme</h2>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing <br> Lorem ipsum dolor sit amet.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script>
+        document.querySelectorAll('.image-container').forEach(function (container) {
+            const image = container.querySelector('.image');
+            const infoDiv = container.querySelector('.info-div');
+
+            image.addEventListener('mouseover', function () {
+                infoDiv.style.bottom = '0';
+            });
+
+            container.addEventListener('mouseleave', function () {
+                infoDiv.style.bottom = '-100%';
+            });
+        });
+
+    </script>
+</body>
+
+</html>

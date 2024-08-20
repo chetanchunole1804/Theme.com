@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    <style>
+        #output {
+            color: #000;
+            font-size: 1.2em;
+        }
+
+        .main h1 {
+            font-size: 45px;
+            color: aqua;
+            text-align: center;
+            padding: 20px 0;
+            text-shadow: 0px 0px 5px grey;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        .main {   
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            background-color: #08121d;
+
+        }
+        
+        #output {
+            width: 70%;
+            height: 110px;
+            margin: auto;
+            text-align: justify;
+            font-weight: bolder;
+            color: #fff;
+        }
+
+        h2 {
+            display: inline;
+            color: #fff;
+        }
+
+        .gallery {
+            display: flex;
+            margin-top: 5%;
+            text-align: center;
+        }
+
+        .gallery img {
+            width: 80%;
+        }
+
+        .gallery h2 {
+            top: 100%;
+        }
+        .ngt, .day{
+            border: 1px solid #9c9c9c;
+            padding: 5px;
+            border-radius: 6px;
+        }
+        .page1 i img {
+            position: absolute;
+            top: 65%;
+            right: 68%;
+            width: 80px;
+            height: 80px;
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(0);
+            transition: transform ease 0.5s;
+        }
+
+        .page2 i img {
+            position: absolute;
+            top: 65%;
+            right: 18%;
+            width: 80px;
+            height: 80px;
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(0);
+            transition: transform ease 0.5s;
+        }
+
+        .back {
+            background-color: #fff;
+            border-radius: 50%;
+            width: 50px;
+            position: absolute;
+            margin: 10px 20px;
+            cursor: pointer;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .main{
+                height: 135vh;
+            }
+            .gallery{
+                display: block;
+                margin-top: 63%;
+                padding-bottom: 17px;
+            }
+            .gallery img {
+                width: 75%;
+                margin: auto;
+            }
+            .page1{
+                margin-bottom: 20px;
+
+            }
+            .main h1{
+                font-size: 2.7em;
+            }
+            .back{
+                width: 37px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <a href="index.html"><img src="arrow-left-circle.svg" alt="" class="back"></a>
+        <h1>About</h1>
+        <p id="output"></p>
+        <div class="gallery">
+            <div class="page1" id="page1">
+                <img src="bg1.jpg" alt=""> <br> <br>
+                <h2 class="ngt">Night Theme</h2>
+                <i><img src="heart.png" alt="" id="icon"></i><br>
+            </div>
+            <div class="page2" id="page2">
+                <img src="bg2.jpg" alt="" class="img2"> <br> <br>
+                <h2 class="day">Day Theme</h2>
+                <i><img src="heart.png" alt="" id="icon1"></i><br>
+            </div>
+        </div>
+    </div>
+    <script>
+        const data = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus reiciendis neque ipsum sequi ullam id quisquam quibusdam pariatur enim tempore optio illo, dolorem itaque unde obcaecati sit soluta? Earum minus eos id aspernatur alias consequatur eius repellat maiores in dolor, cumque vitae quas labore. Officia nisi odit ipsa consequuntur temporibus!  Lorem ipsum dolor sit amet consectetur adipisicing elit. "
+        const output = document.getElementById("output");
+        let index = 0;
+        function nextletter() {
+            if (index < data.length) {
+                output.innerHTML += data[index];
+                index++;
+                setTimeout(nextletter, 30);
+            }
+        }
+        nextletter()
+
+        var page = document.getElementById("page1")
+        var love = document.getElementById("icon")
+
+        page.addEventListener("dblclick", function () {
+            love.style.transform = "translate(-50%, -50%) scale(1)"
+            love.style.opacity = 0.8
+            setTimeout(function () {
+                love.style.opacity = 0;
+            }, 1000);
+            setTimeout(function () {
+                love.style.transform = "translate(-50%, -50%) scale(1)";
+            }, 2000)
+        })
+
+        var page1 = document.getElementById("page2")
+        var love1 = document.getElementById("icon1")
+
+        page1.addEventListener("dblclick", function () {
+            love1.style.transform = "translate(-50%, -50%) scale(1)"
+            love1.style.opacity = 0.8
+            setTimeout(function () {
+                love1.style.opacity = 0;
+            }, 1000);
+            setTimeout(function () {
+                love1.style.transform = "translate(-50%, -50%) scale(1)";
+            }, 2000)
+        })
+    </script>
+</body>
+
+</html>
